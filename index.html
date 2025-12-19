@@ -1,87 +1,153 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Continue</title>
-  <style>
-    * {
-      box-sizing: border-box;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    }
-    body {
-      margin: 0;
-      padding: 0;
-      background: #f5f7fa;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
-    .container {
-      width: 100%;
-      max-width: 420px;
-      padding: 20px;
-    }
-    .title {
-      text-align: center;
-      font-size: 18px;
-      margin-bottom: 20px;
-      color: #333;
-    }
-    .btn {
-      width: 100%;
-      padding: 16px;
-      margin-bottom: 14px;
-      font-size: 16px;
-      border: none;
-      border-radius: 12px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      text-decoration: none;
-      font-weight: 600;
-    }
-    .chat {
-      background: #25D366;
-      color: #fff;
-    }
-    .call {
-      background: #128C7E;
-      color: #fff;
-    }
-    .video {
-      background: #075E54;
-      color: #fff;
-    }
-    .btn:active {
-      transform: scale(0.98);
-    }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <div class="title">Tap to Continue</div>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Incoming Call</title>
 
-    <a class="btn chat" href="https://www.effectivegatecpm.com/ggramz9vvt?key=8143da8fbb88789cf9d12d7aea76a465" target="_blank">
-      💬 Chat Now
-    </a>
-    <a class="btn call" href="https://www.effectivegatecpm.com/ggramz9vvt?key=8143da8fbb88789cf9d12d7aea76a465" target="_blank">
-      📞 Call Now
-    </a>
-    <a class="btn video" href="https://www.effectivegatecpm.com/ggramz9vvt?key=8143da8fbb88789cf9d12d7aea76a465" target="_blank">
-      📹 Video Call
-    </a>
+<!-- SOCIAL BAR -->
+<script type="text/javascript" src="https://pl28287721.effectivegatecpm.com/56/fe/3c/56fe3c7d065219faf13521cc3a3ee5ed.js"></script>
+
+<style>
+* {
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  background: #0b141a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+
+.screen {
+  width: 100%;
+  max-width: 420px;
+  height: 100vh;
+  background: #0b141a;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 60px 20px 40px;
+}
+
+.avatar-wrap {
+  display: flex;
+  justify-content: center;
+}
+
+.avatar {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: url("https://i.imgur.com/Z6Xy7jK.jpg") center/cover no-repeat;
+  position: relative;
+}
+
+.avatar::before,
+.avatar::after {
+  content: "";
+  position: absolute;
+  inset: -12px;
+  border-radius: 50%;
+  border: 2px solid rgba(255,255,255,.2);
+  animation: pulse 2s infinite;
+}
+
+.avatar::after {
+  animation-delay: 1s;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(1.3); opacity: 0; }
+}
+
+.name {
+  text-align: center;
+  font-size: 22px;
+  font-weight: 600;
+  margin-top: 24px;
+}
+
+.status {
+  text-align: center;
+  font-size: 14px;
+  opacity: .8;
+  margin-top: 6px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-around;
+}
+
+.btn {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: none;
+  font-size: 26px;
+  cursor: pointer;
+}
+
+.gray { background:#2a3942; color:#fff; }
+.green { background:#25D366; color:#fff; }
+.red { background:#E74C3C; color:#fff; }
+</style>
+</head>
+
+<body>
+
+<!-- POPUNDER -->
+<script type="text/javascript" src="https://pl28287600.effectivegatecpm.com/4c/c0/62/4cc062ac159d8a215ce8c692a3c398b7.js"></script>
+
+<div class="screen">
+  <div>
+    <div class="avatar-wrap">
+      <div class="avatar"></div>
+    </div>
+    <div class="name">Incoming Call</div>
+    <div class="status" id="status">Calling<span id="dots">...</span></div>
   </div>
 
-  <!-- POPUNDER ADSTERRA -->
-  <script
-    type="text/javascript"
-    src="https://pl28287600.effectivegatecpm.com/4c/c0/62/4cc062ac159d8a215ce8c692a3c398b7.js">
-  </script>
-  <!-- END -->
+  <div class="buttons">
+    <button class="btn gray">🔇</button>
+    <button class="btn green" onclick="videoCall()">📹</button>
+    <button class="btn red" onclick="voiceCall()">📞</button>
+  </div>
+</div>
+
+<script>
+const smartlink = "https://www.effectivegatecpm.com/ggramz9vvt?key=8143da8fbb88789cf9d12d7aea76a465";
+
+let dots = document.getElementById("dots");
+setInterval(() => {
+  dots.textContent = dots.textContent.length >= 3 ? "." : dots.textContent + ".";
+}, 500);
+
+if (navigator.vibrate) {
+  navigator.vibrate([300,200,300,200,300]);
+}
+
+function voiceCall() {
+  window.location.href = smartlink;
+}
+
+function videoCall() {
+  // user interaction → popunder kebuka
+  window.open("about:blank","_blank");
+
+  setTimeout(() => {
+    document.getElementById("status").innerText = "Connecting…";
+    window.location.href = smartlink;
+  }, 600);
+}
+</script>
 
 </body>
 </html>
